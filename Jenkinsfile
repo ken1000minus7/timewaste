@@ -22,7 +22,6 @@ pipeline {
             steps {
                 script {
                     build job: 'unit-test'
-                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
