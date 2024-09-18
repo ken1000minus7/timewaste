@@ -7,7 +7,8 @@ pipeline {
         stage('setup') {
             steps {
                 script {
-                    build job: 'setup'
+                    def result = build job: 'setup'
+                    echo result
                 }
             }
         }
