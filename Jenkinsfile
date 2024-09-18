@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     def result = build job: 'setup'
-                    echo result
+                    log = Jenkins.getInstance().getItemByFullName('setup').getBuildByNumber(result.getNumber()).logFile.text
                 }
             }
         }
