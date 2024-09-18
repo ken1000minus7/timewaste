@@ -1,3 +1,10 @@
+import org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper
+
+@NonCPS
+String getLogFromRunWrapper(RunWrapper runWrapper, int logLines) {
+    return runWrapper.getRawBuild().getLog(logLines).join('\n')
+}
+
 pipeline {
     agent any
     triggers {
@@ -7,8 +14,8 @@ pipeline {
         stage('setup') {
             steps {
                 script {
-                    def result = build job: 'setup'
-                    log = Jenkins.getInstance().getItemByFullName('setup').getBuildByNumber(result.getNumber()).logFile.text
+                    RunWrapper result = build job: 'setup'
+                    echo getLogFromRunWrapper(result, 2000)
                 }
             }
         }
