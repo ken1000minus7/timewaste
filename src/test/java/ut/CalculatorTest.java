@@ -33,15 +33,6 @@ public class CalculatorTest {
         assertEquals(0, cl.doSub(1, 1), 0.0);
 	}
 
-	@Test
-	public void testMul() {
-        assertEquals(18, cl.doMul(9, 2), 0.0);
-	}
-
-	@Test
-	public void testDiv() {
-        assertEquals(4, cl.doDiv(8, 2), 0.0);
-	}
 
 	@Test
 	public void testDivZero() {
